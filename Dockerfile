@@ -60,8 +60,10 @@ RUN printf '%s\n' \
 
 RUN printf '%s\n' \
 '#!/bin/sh' \
+'set -e' \
+'php artisan migrate --force' \
 'php-fpm -D' \
-'nginx -g "daemon off;"' \
+'exec nginx -g "daemon off;"' \
 > /start.sh
 
 RUN chmod +x /start.sh
