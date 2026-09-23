@@ -24,6 +24,9 @@ WORKDIR /var/www
 
 COPY . .
 
+RUN mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs \
+    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+
 RUN composer install \
     --no-dev \
     --optimize-autoloader \
@@ -31,8 +34,6 @@ RUN composer install \
 
 RUN npm install
 RUN npm run build
-
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 RUN printf '%s\n' \
 'server {' \
