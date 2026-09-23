@@ -3,12 +3,12 @@
 <head>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Velorah — Reset password</title>
+    <title>Project Flow — Reset password</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="velorah-login min-h-screen overflow-x-hidden bg-[#032a42] text-white">
+<body class="project-flow-login min-h-screen overflow-x-hidden bg-[#032a42] text-white">
     <main class="relative isolate flex min-h-screen flex-col overflow-hidden">
         <video class="absolute inset-0 -z-10 h-full w-full object-cover" autoplay loop muted playsinline preload="metadata" aria-hidden="true"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4"></video>
 
@@ -26,7 +26,7 @@
                         @csrf
                         <div>
                             <label for="email" class="mb-2 block font-inter text-sm font-medium text-white">Email address</label>
-                            <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus autocomplete="email" inputmode="email" class="velorah-input w-full rounded-xl px-4 py-3 text-base text-white outline-none" placeholder="you@example.com" aria-describedby="email-error">
+                            <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus autocomplete="email" inputmode="email" class="project-flow-input w-full rounded-xl px-4 py-3 text-base text-white outline-none" placeholder="you@example.com" aria-describedby="email-error">
                             @error('email') <p id="email-error" class="mt-2 text-sm text-rose-200" role="alert">{{ $message }}</p> @enderror
                         </div>
                         <button type="submit" class="liquid-glass inline-flex min-h-14 w-full items-center justify-center rounded-full px-8 py-4 font-inter text-base font-medium text-white transition hover:scale-[1.03] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60">Email reset link</button>
