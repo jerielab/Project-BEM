@@ -3,13 +3,11 @@
 namespace App\Http\Requests;
 
 use App\Models\User;
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 class ProfileUpdateRequest extends FormRequest
 {
-    
     public function rules(): array
     {
         return [

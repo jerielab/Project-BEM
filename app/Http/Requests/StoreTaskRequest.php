@@ -20,7 +20,7 @@ class StoreTaskRequest extends FormRequest
             'description' => ['nullable', 'string', 'max:5000'],
             'deadline' => ['nullable', 'date'],
             'status' => ['required', 'in:'.implode(',', Task::STATUSES)],
-            
+
             'attachments' => ['nullable', 'array', 'max:5'],
             'attachments.*' => ['bail', File::types(['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'png', 'jpg', 'jpeg', 'webp', 'txt', 'zip'])->max('10mb')],
         ];

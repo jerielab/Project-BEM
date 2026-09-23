@@ -24,7 +24,7 @@
 </style>
 
 <div class="dashboard-canvas relative isolate min-h-screen overflow-hidden px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png'); background-size: cover; background-position: center;">
-    
+
     <video data-video-guard class="dashboard-canvas__video pointer-events-none absolute inset-0 z-0 h-full w-full object-cover" autoplay loop muted playsinline preload="metadata" poster="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png" aria-hidden="true">
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202422_3ffb4889-c520-432d-8458-038009eb40df.mp4" type="video/mp4">
     </video>

@@ -38,7 +38,6 @@
 
 body { overflow-x: hidden; }
 
-/* Light mode uses translucent mineral-glass layers instead of opaque white surfaces. */
 html:not(.dark) body {
     background:
         radial-gradient(circle at 12% 4%, rgba(94, 234, 212, .22), transparent 30rem),

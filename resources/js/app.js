@@ -53,7 +53,7 @@ document.addEventListener('alpine:init', () => {
                     this.animating = true;
                     setTimeout(() => { this.flashing = true; }, 500);
                     setTimeout(() => { window.location.href = '/dashboard'; }, 760);
-                    return; // keep submitting=true so the button stays disabled through the transition
+                    return;
                 }
 
                 if (res.status === 422) {
@@ -87,7 +87,7 @@ document.addEventListener('alpine:init', () => {
                 return;
             }
 
-            const maxBytes = 10 * 1024 * 1024; // 10 MB
+            const maxBytes = 10 * 1024 * 1024;
             const tooLarge = Array.from(input.files).filter((file) => file.size > maxBytes);
 
             if (tooLarge.length > 0) {
@@ -115,7 +115,7 @@ window.initKanban = function initKanban(projectId) {
                 const newStatus = evt.to.dataset.kanbanColumn;
                 const newPosition = evt.newIndex;
                 evt.item.classList.remove('task-landed');
-                void evt.item.offsetWidth; // force reflow so it replays even if already mid-animation
+                void evt.item.offsetWidth;
                 evt.item.classList.add('task-landed');
                 evt.item.addEventListener('animationend', () => {
                     evt.item.classList.remove('task-landed');
@@ -139,7 +139,7 @@ function initReveal() {
 
     document.documentElement.classList.add('js-motion');
 
-    const groupIndex = new Map(); // parent element -> next stagger index for its children
+    const groupIndex = new Map();
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {

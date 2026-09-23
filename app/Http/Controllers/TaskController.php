@@ -56,7 +56,6 @@ class TaskController extends Controller
         return redirect()->route('projects.show', $project)->with('status', 'Task deleted.');
     }
 
-    
     public function reorder(Request $request, Project $project, Task $task)
     {
         $this->authorizeTask($project, $task);

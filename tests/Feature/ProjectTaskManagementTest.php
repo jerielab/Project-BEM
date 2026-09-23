@@ -16,7 +16,7 @@ class ProjectTaskManagementTest extends TestCase
 
     public function test_an_authenticated_user_can_create_a_project(): void
     {
-        
+
         $user = $this->makeUser(['email_verified_at' => now()]);
 
         $response = $this->actingAs($user)->post(route('projects.store'), [
@@ -33,7 +33,7 @@ class ProjectTaskManagementTest extends TestCase
     public function test_task_attachment_is_stored_within_the_ten_megabyte_limit(): void
     {
         Storage::fake('private');
-        
+
         $user = $this->makeUser(['email_verified_at' => now()]);
         $project = Project::factory()->for($user)->create();
         $file = UploadedFile::fake()->create('brief.pdf', 512, 'application/pdf');
@@ -54,7 +54,7 @@ class ProjectTaskManagementTest extends TestCase
 
     public function test_today_is_not_marked_as_overdue(): void
     {
-        
+
         $user = $this->makeUser();
         $project = Project::factory()->for($user)->create();
         $task = Task::factory()->for($user)->for($project)->create(['deadline' => today(), 'status' => 'todo']);
@@ -65,9 +65,9 @@ class ProjectTaskManagementTest extends TestCase
     public function test_attachment_download_requires_project_ownership(): void
     {
         Storage::fake('private');
-        
+
         $owner = $this->makeUser(['email_verified_at' => now()]);
-        
+
         $otherUser = $this->makeUser(['email_verified_at' => now()]);
         $project = Project::factory()->for($owner)->create();
         $task = Task::factory()->for($owner)->for($project)->create();
@@ -93,7 +93,7 @@ class ProjectTaskManagementTest extends TestCase
     public function test_deleting_a_project_removes_attachment_files(): void
     {
         Storage::fake('private');
-        
+
         $user = $this->makeUser(['email_verified_at' => now()]);
         $project = Project::factory()->for($user)->create();
         $task = Task::factory()->for($user)->for($project)->create();
@@ -113,7 +113,7 @@ class ProjectTaskManagementTest extends TestCase
 
     public function test_deadline_filter_only_shows_matching_tasks(): void
     {
-        
+
         $user = $this->makeUser(['email_verified_at' => now()]);
         $project = Project::factory()->for($user)->create();
         Task::factory()->for($user)->for($project)->create(['title' => 'Tugas terlambat', 'deadline' => now()->subDay(), 'status' => 'todo']);
@@ -127,7 +127,7 @@ class ProjectTaskManagementTest extends TestCase
 
     public function test_dragging_a_task_recalculates_positions_in_the_destination_column(): void
     {
-        
+
         $user = $this->makeUser(['email_verified_at' => now()]);
         $project = Project::factory()->for($user)->create();
         $first = Task::factory()->for($user)->for($project)->create(['status' => 'todo', 'position' => 0]);

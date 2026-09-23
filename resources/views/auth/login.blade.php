@@ -8,15 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        
+
         .velorah-video {
             transition: transform 900ms cubic-bezier(.65, 0, .35, 1);
-            transform-origin: 56% 62%; 
+            transform-origin: 56% 62%;
             will-change: transform;
             backface-visibility: hidden;
-            transform: translateZ(0) scale(1); 
+            transform: translateZ(0) scale(1);
         }
-        .velorah-video.is-zooming { transform: translateZ(0) scale(2.2); } 
+        .velorah-video.is-zooming { transform: translateZ(0) scale(2.2); }
 
         .velorah-scene-content {
             transition: opacity 450ms ease, transform 450ms ease;
@@ -88,6 +88,6 @@
         </section>
     </main>
 
-    
+
 </body>
 </html>

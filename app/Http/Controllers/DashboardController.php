@@ -10,7 +10,6 @@ class DashboardController extends Controller
 {
     public function __invoke()
     {
-        
         $user = User::query()->findOrFail(Auth::id());
         $userId = $user->id;
 
@@ -38,8 +37,6 @@ class DashboardController extends Controller
                 ->count(),
         ];
 
-        
-        
         $overdueTasks = Task::where('user_id', $userId)
             ->where('status', '!=', 'done')
             ->whereNotNull('deadline')
@@ -49,8 +46,6 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        
-        
         $upcomingTasks = Task::where('user_id', $userId)
             ->where('status', '!=', 'done')
             ->whereNotNull('deadline')

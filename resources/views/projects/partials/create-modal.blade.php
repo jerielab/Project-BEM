@@ -21,7 +21,7 @@
         x-transition:leave="transition duration-150 ease-in"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95"
-    >    
+    >
         <div class="mb-4 flex items-center justify-between">
             <h2 id="create-project-title" class="font-semibold">New project</h2>
             <button type="button" x-on:click="open = false" class="cursor-pointer rounded-lg p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300" aria-label="Close">

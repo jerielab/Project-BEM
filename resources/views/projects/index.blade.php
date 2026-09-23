@@ -10,7 +10,7 @@
 </style>
 
 <div class="dashboard-canvas relative isolate min-h-screen overflow-hidden px-4 py-4 sm:px-6 lg:px-8" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_0ba6de7c-285d-43dc-b7ab-8c54c73707cb.png'); background-size: cover; background-position: center;">
-    
+
     <video data-video-guard class="dashboard-canvas__video pointer-events-none absolute inset-0 z-0 h-full w-full object-cover" autoplay loop muted playsinline preload="metadata" poster="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_0ba6de7c-285d-43dc-b7ab-8c54c73707cb.png" aria-hidden="true">
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202422_51eae59a-2459-4c84-907c-cc5edfe5fea7.mp4" type="video/mp4">
     </video>
@@ -21,7 +21,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        
+
         <div class="glass-pane rounded-2xl p-5 sm:p-6">
             <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                 <h1 class="text-xl font-semibold">Projects</h1>
@@ -48,7 +48,7 @@
         <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             @forelse ($projects as $project)
                 <div class="project-card glass-pane relative block rounded-xl p-5 hover:border-teal-500 dark:hover:border-teal-500" data-reveal>
-                    
+
                     <a href="{{ route('projects.show', $project) }}" class="absolute inset-0 rounded-xl" aria-label="Open {{ $project->name }}"></a>
 
                     <button type="button" x-on:click="$dispatch('open-project-edit-modal-{{ $project->id }}')" class="glass-control absolute right-3 top-3 z-10 cursor-pointer rounded-lg p-1.5 text-slate-600 hover:border-teal-500 hover:text-teal-700 dark:text-slate-400 dark:hover:text-teal-300" aria-label="Edit {{ $project->name }}">

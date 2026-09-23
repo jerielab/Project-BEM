@@ -13,7 +13,7 @@
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
     role="dialog" aria-modal="true" aria-labelledby="new-task-title"
 >
-    <div 
+    <div
         class="glass-modal w-full max-w-lg rounded-xl p-6" x-on:click.stop
         x-transition:enter="transition duration-300 ease-spring"
         x-transition:enter-start="opacity-0 scale-90 -rotate-1"

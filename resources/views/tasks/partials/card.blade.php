@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    
+
     <template x-teleport="body">
     <div
         x-show="open" x-cloak
@@ -37,7 +37,7 @@
         class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/65 p-4 backdrop-blur-sm"
         role="dialog" aria-modal="true" x-bind:aria-labelledby="'task-{{ $task->id }}-title'"
     >
-        <div 
+        <div
             class="glass-modal w-full max-w-lg rounded-xl p-6 max-h-[85vh] overflow-y-auto" x-on:click.stop
             x-transition:enter="transition duration-300 ease-spring"
             x-transition:enter-start="opacity-0 scale-90 -rotate-1"
@@ -45,7 +45,7 @@
             x-transition:leave="transition duration-150 ease-in"
             x-transition:leave-start="opacity-100 scale-100"
             x-transition:leave-end="opacity-0 scale-95"
-        >    
+        >
             <h2 id="task-{{ $task->id }}-title" class="font-semibold mb-4">{{ $task->title }}</h2>
 
             <form method="POST" action="{{ route('tasks.update', [$task->project_id, $task]) }}" enctype="multipart/form-data" class="space-y-4" x-data="taskForm()" x-on:submit="validateFiles($event)">

@@ -21,14 +21,14 @@
                     aria-label="Toggle dark mode"
                 >
                     <span class="relative block h-5 w-5">
-                        
+
                         <svg
                             class="absolute inset-0 h-5 w-5 transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)]"
                             :class="!$store.theme.dark ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-90'"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"
                         ><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5m0 15V21m8.25-9H21M3 12h1.5m14.16-6.16-1.06 1.06M6.34 17.66l-1.06 1.06m0-13.44 1.06 1.06M17.66 17.66l1.06 1.06M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
 
-                        
+
                         <svg
                             class="absolute inset-0 h-5 w-5 transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)]"
                             :class="$store.theme.dark ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 -rotate-90'"

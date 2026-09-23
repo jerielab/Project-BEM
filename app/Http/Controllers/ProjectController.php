@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,6 @@ class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-        
         $user = User::query()->findOrFail(Auth::id());
         $projects = $user->projects()
             ->when($request->filled('status'), fn ($q) => $q->where('status', $request->status))
@@ -29,7 +29,6 @@ class ProjectController extends Controller
 
     public function store(StoreProjectRequest $request)
     {
-        
         $user = User::query()->findOrFail(Auth::id());
         $project = $user->projects()->create($request->validated());
 
@@ -41,7 +40,7 @@ class ProjectController extends Controller
         $this->authorizeProject($project);
 
         $filters = $request->validate([
-            'status' => ['nullable', 'in:'.implode(',', \App\Models\Task::STATUSES)],
+            'status' => ['nullable', 'in:'.implode(',', Task::STATUSES)],
             'search' => ['nullable', 'string', 'max:255'],
             'deadline' => ['nullable', 'in:overdue,today,week,none'],
         ]);
@@ -94,12 +93,12 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('status', 'Project deleted.');
     }
 
-
     public function exportCsv(Project $project)
     {
         $this->authorizeProject($project);
         $project->load('tasks');
         $filename = 'project-'.$project->id.'-tasks.csv';
+
         return response()->streamDownload(function () use ($project) {
             $handle = fopen('php://output', 'w');
             fputcsv($handle, ['Title', 'Description', 'Status', 'Deadline']);
