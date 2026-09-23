@@ -70,4 +70,4 @@ RUN chmod +x /start.sh
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "php artisan migrate --force && exec /start.sh"]
+CMD ["/start.sh"]
